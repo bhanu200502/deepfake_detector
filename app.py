@@ -8,7 +8,7 @@ import base64
 
 IMG_SIZE = 128
 st.set_page_config(page_title="Deepfake Detector Grad-CAM", layout="wide")
-keras.backend.clear_session()
+tf.keras.backend.clear_session()
 st.markdown("""
 <style>
 h1 {
@@ -27,7 +27,7 @@ h1 {
 
 st.markdown('<h1>Deepfake Detector</h1>', unsafe_allow_html=True)
 try:
-    model = keras.models.load_model("model.h5")
+    model = tf.keras.models.load_model("model.h5")
     st.success("Model loaded successfully!")
 except Exception as e:
     st.error(f"Failed to load model.h5: {e}")
