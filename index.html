@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deepfake Detector</title>
+    <style>
+        /* reset and base */
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background: #ff4b4b;
+            width: 100%;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+            font-size: 2.5rem;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+        }
+        .upload-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        input[type=file] {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        button {
+            margin-top: 10px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+        }
+        #predictionResult {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        footer {
+            padding: 10px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Deepfake Detector</h1>
+    </header>
+    <main>
+        <section class="upload-section">
+            <p>Select an image to analyze:</p>
+            <input type="file" id="imageUpload" accept="image/*" />
+            <button id="submitBtn" onclick="uploadImage()" disabled>Upload & Predict</button>
+            <div id="predictionResult"></div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2026 Deepfake Detector
+    </footer>
+    <script>
+        const fileInput = document.getElementById('imageUpload');
+        const submitBtn = document.getElementById('submitBtn');
+        fileInput.addEventListener('change', () => {
+            submitBtn.disabled = !fileInput.files.length;
+        });
+        function uploadImage() {
+            // TODO: implement POST to backend and render response
+            alert('This would call your Flask/TF backend!');
+        }
+    </script>
+</body>
+</html>
