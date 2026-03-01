@@ -1,7 +1,6 @@
 import streamlit as st
 import cv2
 import numpy as np
-from tensorflow import keras
 import tensorflow as tf
 from streamlit.components.v1 import html
 import base64
